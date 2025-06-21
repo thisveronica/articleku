@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penggunaan AI pada Karya Seni</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #212529;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #1c1c1c;
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .article-header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1581093588401-8ab7e4a85e4d');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .article-header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .article-subtitle {
+      font-style: italic;
+      color: #e0e0e0;
+      margin-top: 0.5rem;
+    }
+
+    .container-main {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .article-content {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .sidebar {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-top: 2rem;
+    }
+
+    @media(min-width: 768px) {
+      .article-content {
+        flex: 0 0 75%;
+        max-width: 75%;
+        padding-right: 2rem;
+      }
+      .sidebar {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding-left: 1rem;
+      }
+    }
+
+    .sidebar h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .illustration-image {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: #212529;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer p {
+      margin: 0.3rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.8;
+      text-align: justify;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="text-center">
+    <h2>TeknoSeni Magazine</h2>
+  </header>
+
+  <div class="article-header">
+    <div>
+      <h1>Penggunaan AI pada Karya Seni</h1>
+      <p class="article-subtitle">Teknologi dan Kreativitas dalam Satu Frame</p>
+    </div>
+  </div>
+
+  <div class="container-main">
+    <div class="article-content">
+      <p id="pengantar">Kecerdasan buatan (AI) telah merevolusi berbagai bidang, termasuk dunia seni. AI kini bukan hanya alat bantu, tetapi juga mitra kreatif yang membuka peluang baru dalam penciptaan karya yang inovatif dan inspiratif.</p>
+
+      <img src="https://images.unsplash.com/photo-1581090700227-2fe621f4f1d1" alt="AI-generated art" class="illustration-image">
+
+      <h3 id="teknik-ai" class="section-title">Teknik AI dalam Seni</h3>
+      <p>AI dalam seni biasanya menggunakan teknologi seperti Generative Adversarial Networks (GANs) yang memungkinkan komputer menciptakan gambar dengan meniru gaya seniman. Ada juga model NLP dan style transfer yang membuat lukisan digital menjadi lebih ekspresif dan unik.</p>
+
+      <h3 id="kolaborasi" class="section-title">Kolaborasi Manusia dan AI</h3>
+      <p>Kolaborasi ini menciptakan peluang baru. Seniman kini bekerja berdampingan dengan AI untuk mengeksplorasi bentuk ekspresi baru. Mereka memberikan data, ide, dan inspirasi, sementara AI memberikan variasi dan visualisasi cepat.</p>
+
+      <img src="https://images.unsplash.com/photo-1603575448798-55e22a5a2bb7" alt="Kolaborasi AI dan manusia" class="illustration-image">
+
+      <h3 id="kontroversi" class="section-title">Kontroversi dan Etika</h3>
+      <p>Banyak pihak mempertanyakan apakah karya AI adalah seni sejati. Perdebatan mengenai hak cipta, keaslian, dan nilai artistik masih berlangsung. Apakah penciptanya adalah mesin, pembuat data, atau pengembang?</p>
+
+      <h3 id="musik" class="section-title">AI dalam Musik dan Suara</h3>
+      <p>Di bidang musik, AI telah menciptakan komposisi, harmoni, dan bahkan suara vokal. Platform seperti Amper Music dan AIVA telah digunakan dalam produksi komersial. AI juga mampu menyesuaikan komposisi dengan mood atau suasana yang diinginkan.</p>
+
+      <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051" alt="AI membuat musik" class="illustration-image">
+
+      <h3 id="masa-depan" class="section-title">Masa Depan AI & Seni</h3>
+      <p>Kita sedang menuju era baru di mana AI tidak menggantikan seniman, tapi menjadi pelengkap yang memperluas kemungkinan. Seni AI akan terus berkembang seiring kemajuan teknologi, menciptakan dunia baru dalam kreativitas digital.</p>
+    </div>
+
+    <div class="sidebar">
+      <h5>🔗 Navigasi Topik</h5>
+      <a href="#pengantar">🧠 Pengantar</a>
+      <a href="#teknik-ai">🎨 Teknik AI dalam Seni</a>
+      <a href="#kolaborasi">🤝 Kolaborasi Manusia dan AI</a>
+      <a href="#kontroversi">⚖️ Kontroversi dan Etika</a>
+      <a href="#musik">🎵 AI dalam Musik dan Suara</a>
+      <a href="#masa-depan">🚀 Masa Depan AI & Seni</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>Redaksi TeknoSeni</strong></p>
+    <p>Email: redaksi@teknoseni.id | IG: @teknoseni.id</p>
+    <p>&copy; 2025 TeknoSeni Magazine. All rights reserved.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
