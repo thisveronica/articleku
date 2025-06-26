@@ -8,11 +8,10 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap 5 (untuk reset & utilitas) -->
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    /* ======== Warna dasar (light / dark) ======== */
     :root {
       --bg: #ffffff;
       --text: #212529;
@@ -20,6 +19,7 @@
       --footer-text: #ccc;
       --card-bg: #fff;
     }
+
     body.dark-mode {
       --bg: #121212;
       --text: #f0f0f0;
@@ -28,8 +28,6 @@
       --card-bg: #1e1e1e;
     }
 
-    /* ======== Elemen umum ======== */
-    * { box-sizing: border-box; }
     body {
       background: var(--bg);
       color: var(--text);
@@ -38,7 +36,6 @@
       margin: 0;
     }
 
-    /* ======== Header ======== */
     header {
       background: #1c1c1c;
       color: #fff;
@@ -51,7 +48,11 @@
       top: 0;
       z-index: 2500;
     }
-    header h2 { margin: 0; font-size: 1.4rem; }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
 
     .btn-control {
       cursor: pointer;
@@ -65,7 +66,6 @@
       user-select: none;
     }
 
-    /* ======== Menu pop-up ======== */
     .nav-popup {
       position: fixed;
       top: 70px;
@@ -83,12 +83,17 @@
       transition: opacity .25s ease, transform .25s ease;
       z-index: 3000;
     }
-    .nav-popup.dark-mode { border-color: #444; }
+
+    .nav-popup.dark-mode {
+      border-color: #444;
+    }
+
     .nav-popup.show {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
+
     .nav-popup a {
       display: block;
       margin-bottom: .5rem;
@@ -96,12 +101,13 @@
       text-decoration: none;
       font-weight: 600;
     }
-    .nav-popup a:hover { text-decoration: underline; }
 
-    /* ======== Hero ======== */
+    .nav-popup a:hover {
+      text-decoration: underline;
+    }
+
     .article-header {
-      background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
-                  url('pict/head.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)), url('pict/head.jpg') center/cover no-repeat;
       height: 350px;
       display: flex;
       align-items: center;
@@ -110,6 +116,7 @@
       padding: 1rem;
       color: #fff;
     }
+
     .article-header h1 {
       font-family: 'Merriweather', serif;
       font-size: 3rem;
@@ -117,21 +124,25 @@
       margin: 0;
       text-shadow: 2px 2px 8px rgba(0,0,0,.6);
     }
+
     .article-subtitle {
       font-style: italic;
       color: #e0e0e0;
       margin-top: .6rem;
     }
+
     @media (max-width: 576px) {
-      .article-header h1 { font-size: 1.8rem; }
+      .article-header h1 {
+        font-size: 1.8rem;
+      }
     }
 
-    /* ======== Konten ======== */
     .container-main {
       max-width: 800px;
       margin: auto;
       padding: 2rem 1rem;
     }
+
     .article-content h3 {
       margin-top: 2.5rem;
       font-size: 1.55rem;
@@ -139,11 +150,13 @@
       padding-left: 1rem;
       font-weight: 600;
     }
+
     .article-content p {
       line-height: 1.9;
       text-align: justify;
       margin-bottom: 1.5rem;
     }
+
     .illustration-image {
       width: 100%;
       border-radius: 12px;
@@ -151,20 +164,34 @@
       box-shadow: 0 4px 12px rgba(0,0,0,.1);
     }
 
-    /* ======== Footer ======== */
     .footer {
       background: var(--footer-bg);
       color: var(--footer-text);
-      text-align: center;
       padding: 2rem 1rem;
       margin-top: 3rem;
     }
-    .footer p { margin: .3rem 0; font-size: .95rem; }
+
+    .footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .footer p {
+      margin: 0.4rem 0;
+      font-size: .95rem;
+    }
+
+    .footer strong {
+      font-size: 1rem;
+    }
   </style>
 </head>
 
 <body>
-  <!-- ========= Header & tombol ========= -->
   <header>
     <h2>TeknoSeni Magazine</h2>
     <div>
@@ -173,7 +200,6 @@
     </div>
   </header>
 
-  <!-- ========= Navigasi pop-up ========= -->
   <nav id="navPopup" class="nav-popup">
     <a href="#pengantar">🧠 Pengantar</a>
     <a href="#teknik-ai">🎨 Teknik AI</a>
@@ -183,7 +209,6 @@
     <a href="#masa-depan">🚀 Masa Depan</a>
   </nav>
 
-  <!-- ========= Hero ========= -->
   <section class="article-header">
     <div>
       <h1>Penggunaan AI pada Karya Seni</h1>
@@ -191,78 +216,59 @@
     </div>
   </section>
 
-  <!-- ========= Konten ========= -->
   <main class="container-main">
     <article class="article-content">
-      <p id="pengantar">
-        Kecerdasan buatan (AI) telah merevolusi berbagai bidang, termasuk dunia seni. AI kini bukan hanya alat bantu,
-        tetapi juga mitra kreatif yang membuka peluang baru dalam penciptaan karya inovatif dan inspiratif.
-      </p>
+      <p id="pengantar">Kecerdasan buatan (AI) telah merevolusi berbagai bidang, termasuk dunia seni...</p>
       <img src="pict/lukis.jpg" alt="Ilustrasi AI & lukisan" class="illustration-image">
 
       <h3 id="teknik-ai">Teknik AI dalam Seni</h3>
-      <p>
-        AI dalam seni memanfaatkan Generative Adversarial Networks (GANs) untuk meniru gaya seniman,
-        style-transfer, sampai model NLP yang membuat lukisan digital makin ekspresif.
-        Berbagai tool membantu seniman dari pengolahan gambar hingga sintesis musik otomatis.
-      </p>
+      <p>AI menggunakan GANs, style-transfer, NLP, dan berbagai tool seni digital...</p>
 
       <h3 id="kolaborasi">Kolaborasi Manusia dan AI</h3>
-      <p>
-        Seniman memberikan data, ide, dan inspirasi; AI menawarkan variasi dan visualisasi cepat.
-        Kolaborasi ini memperluas spektrum ekspresi di luar teknik konvensional.
-      </p>
+      <p>Seniman memberi ide dan data, AI menciptakan visualisasi cepat dan ekspresif...</p>
       <img src="pict/ai.jpg" alt="Kolaborasi AI & manusia" class="illustration-image">
 
       <h3 id="kontroversi">Kontroversi dan Etika</h3>
-      <p>
-        Apakah karya AI pantas disebut seni sejati? Perdebatan hak cipta, keaslian, dan nilai artistik
-        masih berlangsung—siapa pencipta sesungguhnya: mesin, pengembang, atau penyedia data?
-      </p>
+      <p>Isu hak cipta, keaslian, dan siapa pencipta sebenarnya masih diperdebatkan...</p>
 
       <h3 id="musik">AI dalam Musik dan Suara</h3>
-      <p>
-        Platform seperti Amper Music dan AIVA membuat komposisi otomatis untuk film dan iklan,
-        bahkan menyesuaikan mood yang diinginkan pengguna untuk pengalaman audio personal.
-      </p>
+      <p>Amper Music dan AIVA membantu produksi musik otomatis berdasarkan mood...</p>
       <img src="pict/data.jpg" alt="AI & data musik" class="illustration-image">
 
       <h3 id="masa-depan">Masa Depan AI & Seni</h3>
-      <p>
-        AI tidak menggantikan seniman, tetapi memperluas kemungkinan. Seni menjadi lebih inklusif,
-        terjangkau, dan terbuka untuk eksplorasi kreatif yang tak terbatas.
-      </p>
+      <p>AI memperluas kreativitas, bukan menggantikan seniman, menjadikan seni lebih terbuka dan inklusif...</p>
     </article>
   </main>
 
-  <!-- ========= Footer ========= -->
   <footer class="footer">
-    <p><strong>Redaksi TeknoSeni</strong></p>
-    <p>Email: redaksi@teknoseni.id</p>
-    <p>Instagram: @teknoseni.id</p>
-    <p>&copy; 2025 TeknoSeni Magazine. All rights reserved.</p>
+    <div class="footer-grid">
+      <div>
+        <p><strong>Redaksi TeknoSeni</strong></p>
+        <p>Email: redaksi@teknoseni.id</p>
+      </div>
+      <div>
+        <p>Instagram: @teknoseni.id</p>
+        <p>&copy; 2025 TeknoSeni Magazine</p>
+      </div>
+    </div>
   </footer>
 
-  <!-- ========= Skrip interaktif ========= -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const navPopup   = document.getElementById('navPopup');
+      const navPopup = document.getElementById('navPopup');
       const menuToggle = document.getElementById('menuToggle');
       const modeToggle = document.getElementById('modeToggle');
 
-      /* Tampilkan/sembunyikan menu Topik */
       menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();          // Hindari ditutup oleh listener global
+        e.stopPropagation();
         navPopup.classList.toggle('show');
       });
 
-      /* Ganti tema gelap/terang */
       modeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         navPopup.classList.toggle('dark-mode');
       });
 
-      /* Klik di luar menu menutupnya */
       document.addEventListener('click', (e) => {
         if (!navPopup.contains(e.target) && navPopup.classList.contains('show')) {
           navPopup.classList.remove('show');
