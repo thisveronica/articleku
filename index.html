@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,26 +15,23 @@
       --footer-bg: #212529;
       --footer-text: #ccc;
     }
-
     body.dark-mode {
       --bg-color: #121212;
       --text-color: #f0f0f0;
       --footer-bg: #0d0d0d;
       --footer-text: #aaa;
     }
-
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Open Sans', Arial, sans-serif;
       scroll-behavior: smooth;
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #1c1c1c;
-      color: white;
+      color: #fff;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
@@ -45,9 +41,7 @@
       top: 0;
       z-index: 1000;
     }
-
-    .toggle-switch,
-    .menu-toggle {
+    .menu-toggle, .toggle-switch {
       cursor: pointer;
       background: #444;
       border: none;
@@ -56,6 +50,8 @@
       border-radius: 5px;
       font-size: 0.9rem;
       margin-left: 0.5rem;
+      position: relative;
+      z-index: 1100; /* pastikan di atas elemen lain */
     }
 
     .nav-popup {
@@ -68,85 +64,75 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 1rem;
-      z-index: 2000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1050;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       max-width: 250px;
     }
-
+    .nav-popup.show { /* kelas aktif */
+      display: block;
+    }
     .nav-popup.dark-mode {
       background-color: #222;
       color: #fff;
       border-color: #444;
     }
-
     .nav-popup a {
       display: block;
       margin-bottom: 0.5rem;
       color: #0d6efd;
       text-decoration: none;
     }
-
     .nav-popup a:hover {
       text-decoration: underline;
     }
 
-    /* ---------- HEADER HERO ---------- */
     .article-header {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), url('pict/head.jpg');
+      background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.4)), url('pict/head.jpg');
       background-size: cover;
       background-position: center;
       height: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 1rem;
     }
-
     .article-header h1 {
       font-family: 'Merriweather', serif;
-      font-size: 3rem; /* default – besar untuk desktop */
       font-weight: 700;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-      margin: 0;
+      font-size: 3rem; /* desktop */
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      margin-bottom: .3rem;
     }
-
     .article-subtitle {
       font-style: italic;
       color: #e0e0e0;
-      margin-top: 0.5rem;
     }
 
-    /* ---------- MAIN CONTENT ---------- */
     .container-main {
       max-width: 800px;
       margin: auto;
       padding: 2rem 1rem;
     }
-
     .article-content h3 {
       margin-top: 2.5rem;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       border-left: 4px solid #0d6efd;
       padding-left: 1rem;
-      font-weight: 600;
+      text-align: left;
     }
-
     .article-content p {
       line-height: 1.9;
-      text-align: justify; /* isi artikel rata kiri‑kanan */
+      text-align: justify; /* sesuai permintaan */
       margin-bottom: 1.5rem;
     }
-
     .illustration-image {
       width: 100%;
       border-radius: 12px;
       margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
-    /* ---------- FOOTER ---------- */
     .footer {
       background-color: var(--footer-bg);
       color: var(--footer-text);
@@ -154,30 +140,25 @@
       padding: 2rem 1rem;
       margin-top: 3rem;
     }
+    .footer p { margin: 0.3rem 0; font-size: 0.95rem; }
 
-    .footer p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 576px) {
-      .article-header h1 {
-        font-size: 1.8rem; /* lebih kecil di mobile */
-      }
+      .article-header { height: 280px; }
+      .article-header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
-
 <body>
+  <!-- ======= HEADER ======= -->
   <header>
     <h2 class="m-0">TeknoSeni Magazine</h2>
     <div>
-      <button class="menu-toggle" onclick="toggleNav()">📖 Topik</button>
-      <button class="toggle-switch" onclick="toggleMode()">🌓 Mode</button>
+      <button id="menuBtn" class="menu-toggle">📖 Topik</button>
+      <button id="modeBtn" class="toggle-switch">🌓 Mode</button>
     </div>
   </header>
 
+  <!-- ======= POP‑UP NAVIGATION ======= -->
   <div class="nav-popup" id="navPopup">
     <a href="#pengantar">🧠 Pengantar</a>
     <a href="#teknik-ai">🎨 Teknik AI dalam Seni</a>
@@ -187,6 +168,7 @@
     <a href="#masa-depan">🚀 Masa Depan</a>
   </div>
 
+  <!-- ======= HERO ======= -->
   <div class="article-header">
     <div>
       <h1>Penggunaan AI pada Karya Seni</h1>
@@ -194,10 +176,11 @@
     </div>
   </div>
 
+  <!-- ======= MAIN CONTENT ======= -->
   <div class="container-main">
     <div class="article-content">
       <p id="pengantar">Kecerdasan buatan (AI) telah merevolusi berbagai bidang, termasuk dunia seni. AI kini bukan hanya alat bantu, tetapi juga mitra kreatif yang membuka peluang baru dalam penciptaan karya yang inovatif dan inspiratif.</p>
-      <img src="pict/lukis.jpg" alt="AI-generated art" class="illustration-image">
+      <img src="pict/lukis.jpg" alt="Ilustrasi lukisan AI" class="illustration-image">
 
       <h3 id="teknik-ai">Teknik AI dalam Seni</h3>
       <p>AI dalam seni menggunakan teknologi seperti Generative Adversarial Networks (GANs) yang memungkinkan komputer menciptakan gambar dengan meniru gaya seniman. Ada juga model NLP dan style transfer yang membuat lukisan digital menjadi lebih ekspresif dan unik. Berbagai tools berbasis AI telah dikembangkan untuk membantu seniman digital, mulai dari pengolahan gambar hingga sintesis musik otomatis.</p>
@@ -218,6 +201,7 @@
     </div>
   </div>
 
+  <!-- ======= FOOTER ======= -->
   <div class="footer">
     <p><strong>Redaksi TeknoSeni</strong></p>
     <p>Email: redaksi@teknoseni.id</p>
@@ -225,10 +209,7 @@
     <p>&copy; 2025 TeknoSeni Magazine. All rights reserved.</p>
   </div>
 
+  <!-- ======= SCRIPTS ======= -->
   <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-      document.getElementById('navPopup').classList.toggle('dark-mode');
-    }
-
-    function toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.getElementById('
